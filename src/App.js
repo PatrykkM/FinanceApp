@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import LandingPage from "./LandingPage";
+import "./index.css";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      id="WRAPPER"
+      className="flex items-center justify-center font-Roboto min-w-314px"
+    >
+      <div className="overflow-hidden flex flex-col w-11/12   justify-center">
+        <LandingPage />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
