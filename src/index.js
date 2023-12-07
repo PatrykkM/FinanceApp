@@ -14,7 +14,7 @@ root.render(
     <Router>
       <Routes>
         <Route path="*" exact element={<App />} />
-        <Route path="/Apple" element={<TradingPage />} />
+        <Route path="/FinanceApp/Apple" element={<TradingPage />} />
       </Routes>
     </Router>
     <FetchDataApi />
