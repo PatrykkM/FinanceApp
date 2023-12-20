@@ -2,7 +2,8 @@ import React from "react";
 import Watchlist from "./Watchlist";
 import { useDispatch, useSelector } from "react-redux";
 import { changeStocksSection } from "../../redux/actions";
-import { useEffect, useState } from "react";
+import Popular from "./Popular";
+import Portfolio from "./Portfolio";
 
 const Investments = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,6 @@ const Investments = () => {
     dispatch(changeStocksSection(newSectionData));
   };
   const ActiveStocksSection = useSelector((state) => state.changeStocksSection);
-
   return (
     <div className="flex flex-col mt-10 ">
       <div className="text-xl font-medium">Investments</div>
@@ -64,9 +64,9 @@ const Investments = () => {
           Watchlist
         </div>
       </div>
-      {ActiveStocksSection.Popular ? <Watchlist /> : null}
-      {ActiveStocksSection.Watchlist ? <Watchlist /> : null}
-      {ActiveStocksSection.Portfolio ? <Watchlist /> : null}
+      {ActiveStocksSection.Popular && <Popular />}
+      {ActiveStocksSection.Watchlist && <Watchlist />}
+      {ActiveStocksSection.Portfolio && <Portfolio />}
     </div>
   );
 };

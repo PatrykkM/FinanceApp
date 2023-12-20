@@ -1,6 +1,7 @@
 import React from "react";
 import { data } from "../../Data";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const PortfolioValue = () => {
   const apiData = useSelector((state) => state.apiData);
@@ -23,6 +24,7 @@ const PortfolioValue = () => {
     style: "currency",
     currency: "USD",
   }).format(dollars + cents / 100);
+
   return (
     <div className="flex flex-col mt-5">
       <div className="text-xs text-gray-400">Portfolio Value</div>
@@ -64,8 +66,11 @@ const PortfolioValue = () => {
               </div>
             </div>
           </div>
-          <div className="h-1/5 bg-Light-Black rounded-lg  flex justify-center items-center text-sm text-white  tracking-wide">
-            Buy now
+
+          <div className=" h-1/5 bg-Light-Black rounded-lg  flex justify-center items-center text-sm text-white  tracking-wide ">
+            <Link to={"TSLA"} className="w-full text-center">
+              Buy now
+            </Link>
           </div>
         </div>
       </div>

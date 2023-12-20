@@ -7,9 +7,9 @@ import {
 const initialState = {
   apiData: [],
   changeStocksSection: {
-    Portfolio: true,
+    Portfolio: false,
     Watchlist: false,
-    Popular: false,
+    Popular: true,
   },
   showAndHideCartMobile: false,
 };
