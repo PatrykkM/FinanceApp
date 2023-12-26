@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/FinanceApp/static/css/main.de8fc4c7.css",
-    "main.js": "/FinanceApp/static/js/main.64887efb.js",
+    "main.css": "/FinanceApp/static/css/main.75ae50ff.css",
+    "main.js": "/FinanceApp/static/js/main.d1f69bca.js",
     "static/media/User.jpg": "/FinanceApp/static/media/User.6ed62c6f7860af5a3f30.jpg",
     "index.html": "/FinanceApp/index.html",
-    "main.de8fc4c7.css.map": "/FinanceApp/static/css/main.de8fc4c7.css.map",
-    "main.64887efb.js.map": "/FinanceApp/static/js/main.64887efb.js.map"
+    "main.75ae50ff.css.map": "/FinanceApp/static/css/main.75ae50ff.css.map",
+    "main.d1f69bca.js.map": "/FinanceApp/static/js/main.d1f69bca.js.map"
   },
   "entrypoints": [
-    "static/css/main.de8fc4c7.css",
-    "static/js/main.64887efb.js"
+    "static/css/main.75ae50ff.css",
+    "static/js/main.d1f69bca.js"
   ]
 }
