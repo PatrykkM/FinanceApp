@@ -12,14 +12,14 @@ const Investments = () => {
   };
   const ActiveStocksSection = useSelector((state) => state.changeStocksSection);
   return (
-    <div className="flex flex-col mt-10 ">
-      <div className="text-xl font-medium">Investments</div>
-      <div className="flex text-gray-400 text-xs tracking-wide my-6 ">
+    <div className="flex flex-col mt-10 lg:ml-64">
+      <div className="text-xl font-medium sm:text-2xl">Investments</div>
+      <div className="flex text-gray-400 text-xs tracking-wide my-6 sm:text-sm ">
         <div
           className={
             ActiveStocksSection.Popular
-              ? "bg-Darker-Blue px-3 py-2 rounded-full text-white  transition-all"
-              : "bg-Light-Gray px-3 py-2 rounded-full  transition-all"
+              ? "  bg-Darker-Blue px-3 py-2 rounded-full text-white  transition-all sm:px-6 sm:py-3 lg:px-7 cursor-pointer"
+              : " bg-Light-Gray px-3 py-2 rounded-full  transition-all sm:px-6 sm:py-3 cursor-pointer lg:px-7"
           }
           onClick={() =>
             handleItemClick({
@@ -34,8 +34,8 @@ const Investments = () => {
         <div
           className={
             ActiveStocksSection.Portfolio
-              ? "bg-Darker-Blue px-3 py-2 rounded-full text-white transition-all ml-2"
-              : "bg-Light-Gray px-3 py-2 rounded-full  transition-all ml-2"
+              ? "bg-Darker-Blue px-3 py-2 rounded-full text-white transition-all ml-2 sm:px-6 sm:py-3 lg:px-7 cursor-pointer"
+              : "bg-Light-Gray px-3 py-2 rounded-full  transition-all ml-2 sm:px-6 sm:py-3 cursor-pointer lg:px-7"
           }
           onClick={() =>
             handleItemClick({
@@ -50,8 +50,8 @@ const Investments = () => {
         <div
           className={
             ActiveStocksSection.Watchlist
-              ? "bg-Darker-Blue px-3 py-2 rounded-full text-white ml-2 transition-all"
-              : "bg-Light-Gray px-3 py-2 rounded-full ml-2 transition-all"
+              ? "bg-Darker-Blue px-3 py-2 rounded-full text-white ml-2 transition-all sm:px-6 sm:py-3 cursor-pointer lg:px-7"
+              : "bg-Light-Gray px-3 py-2 rounded-full ml-2 transition-all sm:px-6 sm:py-3 cursor-pointer lg:px-7 "
           }
           onClick={() =>
             handleItemClick({

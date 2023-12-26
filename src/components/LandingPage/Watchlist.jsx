@@ -1,9 +1,10 @@
 import React from "react";
-import { data } from "../../Data";
 import StockItem from "./StockItem";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Watchlist = () => {
+  const data = useSelector((state) => state.stockData);
   const WatchlistData = data.filter((data) => data.Watchlist === true);
   const ValueOfPortfolio = WatchlistData.map((dataItem) => (
     <Link key={dataItem.id} to={dataItem.LinkStock}>

@@ -5,9 +5,13 @@ import Investments from "./components/LandingPage/Investments";
 const LandingPage = () => {
   return (
     <>
-      <Navbar />
-      <PortfolioValue />
-      <Investments />
+      <div className="block lg:flex ">
+        <Navbar />
+        <div className="block lg:flex lg:flex-col lg:grow">
+          <PortfolioValue />
+          <Investments />
+        </div>
+      </div>
     </>
   );
 };

@@ -2,6 +2,12 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    screens: {
+      sm: "640px",
+      lg: "1024px",
+      xl: "1280px",
+      xxxl: "1730px",
+    },
     minWidth: {
       "314px": "314px",
     },
@@ -16,6 +22,9 @@ module.exports = {
       8: "8px",
     },
     extend: {
+      margin: {
+        "3px": "3px",
+      },
       colors: {
         "Light-Blue": "#EEF4FF",
         "Light-Gray": "#F9F9F9",
@@ -27,6 +36,11 @@ module.exports = {
       },
       width: {
         "11/20": "45%",
+        "9/10": "90%",
+      },
+      height: {
+        160: "40rem",
+        "9/10": "90%",
       },
     },
   },

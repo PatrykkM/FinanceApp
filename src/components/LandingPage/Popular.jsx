@@ -1,9 +1,10 @@
 import React from "react";
-import { data } from "../../Data";
 import StockItem from "./StockItem";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Popular = () => {
+  const data = useSelector((state) => state.stockData);
   return data.map((dataItem) => {
     return (
       <Link key={dataItem.id} to={dataItem.LinkStock}>

@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { data } from "./Data";
 import { setAPIData } from "./redux/actions";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const FetchDataApi = () => {
-  const today = new Date();
-  const yesterday = new Date(today);
-  yesterday.setDate(today.getDate() - 2);
-  const year = yesterday.getFullYear();
-  const month = (yesterday.getMonth() + 1).toString().padStart(2, "0");
-  const day = yesterday.getDate().toString().padStart(2, "0");
-  const formattedYesterdays = `${year}-${month}-${day}`;
+  const data = useSelector((state) => state.stockData);
+  // const today = new Date();
+  // const yesterday = new Date(today);
+  // yesterday.setDate(today.getDate() - 3);
+  // const year = yesterday.getFullYear();
+  // const month = (yesterday.getMonth() + 1).toString().padStart(2, "0");
+  // const day = yesterday.getDate().toString().padStart(2, "0");
+  // const formattedYesterdays = `${year}-${month}-${day}`;
 
   const dispatch = useDispatch();
 
@@ -30,7 +31,7 @@ const FetchDataApi = () => {
         try {
           const promises = data.map(async (dataItem) => {
             const jsonData = await fetch(
-              `https://api.polygon.io/v1/open-close/${dataItem.LinkStock}/${formattedYesterdays}?adjusted=true&apiKey=3jHxpz7O9_eoUB9NIERMOBhT5oiM0xQo`
+              `https://api.polygon.io/v1/open-close/${dataItem.LinkStock}/2023-12-22?adjusted=true&apiKey=3jHxpz7O9_eoUB9NIERMOBhT5oiM0xQo`
             );
             const response = await jsonData.json();
             return response;
@@ -46,7 +47,7 @@ const FetchDataApi = () => {
     };
 
     fetchData();
-  }, [dataFetched, dispatch, formattedYesterdays]);
+  }, [dataFetched, dispatch, data]);
 
   return <></>;
 };
