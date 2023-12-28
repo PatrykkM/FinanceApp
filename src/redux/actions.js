@@ -6,6 +6,7 @@ export const CURRENT_CASH = "CURRENT_CASH";
 export const IS_VISIBLE_CURRENT_CASH = "IS_VISIBLE_CURRENT_CASH";
 export const STOCK_DATA = "STOCK_DATA";
 export const UPDATE_PORTFOLIO = "UPDATE_PORTFOLIO";
+export const SET_USER_SELL_STATUS = "SET_USER_SELL_STATUS";
 
 export const setAPIData = (apiData) => ({
   type: SET_API_DATA,
@@ -39,3 +40,9 @@ export const updatePortfolio = (data) => ({
   type: UPDATE_PORTFOLIO,
   payload: data,
 });
+export const setUserSellStatus = () => {
+  return {
+    type: "SET_USER_SELL_STATUS",
+    payload: true,
+  };
+};

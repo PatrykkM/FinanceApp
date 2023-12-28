@@ -28,6 +28,7 @@ const initialState = {
       LinkStock: "TSLA",
       Watchlist: false,
       Portfolio: 0,
+      DidUserSell: false,
     },
     {
       id: 1,
@@ -37,6 +38,7 @@ const initialState = {
       Watchlist: false,
       Portfolio: 0,
       TopAssets: true,
+      DidUserSell: false,
     },
     {
       id: 2,
@@ -45,6 +47,7 @@ const initialState = {
       LinkStock: "META",
       Watchlist: false,
       Portfolio: 0,
+      DidUserSell: false,
     },
     {
       id: 3,
@@ -54,6 +57,7 @@ const initialState = {
       Watchlist: false,
       Portfolio: 0,
       TopAssets: true,
+      DidUserSell: false,
     },
     {
       id: 4,
@@ -62,6 +66,7 @@ const initialState = {
       LinkStock: "IBM",
       Watchlist: false,
       Portfolio: 0,
+      DidUserSell: false,
     },
   ],
 };
@@ -91,7 +96,11 @@ const rootReducer = (state = initialState, action) => {
           if (actionType === "increase") {
             return { ...stock, Portfolio: stock.Portfolio + 1 };
           } else if (actionType === "decrease" && stock.Portfolio > 0) {
-            return { ...stock, Portfolio: stock.Portfolio - 1 };
+            return {
+              ...stock,
+              Portfolio: stock.Portfolio - 1,
+              DidUserSell: true,
+            };
           }
         }
         return stock;

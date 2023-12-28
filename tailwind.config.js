@@ -29,7 +29,10 @@ module.exports = {
         "Light-Blue": "#EEF4FF",
         "Light-Gray": "#F9F9F9",
         "Light-Black": "#1F1F1F",
+        "Light-Black": "#1F1F1F",
+        "Darker-Black": "#0D0D0D",
         "Darker-Blue": "#1561FD",
+        "Darker-White": "#F2F3F6",
       },
       fontFamily: {
         Roboto: ["Prompt", "sans-serif"],
@@ -37,6 +40,7 @@ module.exports = {
       width: {
         "11/20": "45%",
         "9/10": "90%",
+        TradingPageWidth: "100%-64rem",
       },
       height: {
         160: "40rem",

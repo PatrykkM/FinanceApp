@@ -11,6 +11,7 @@ import { BsTelephone } from "react-icons/bs";
 import { FaUncharted } from "react-icons/fa";
 import { GiSettingsKnobs } from "react-icons/gi";
 import { IoWalletOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const Navbar = () => {
             }
           />
         </div>
-        <div className="">
+        <div>
           <img
             src={UserImg}
             alt="CurrentUserImg"
@@ -59,10 +60,12 @@ const Navbar = () => {
             <FaUncharted className="text-Darker-Blue mr-1 cursor-pointer" />
             Finance.
           </li>
-          <li className="mb-5 flex cursor-pointer ">
-            <TiHomeOutline className="mt-3px mr-2 " />
-            Home
-          </li>
+          <Link to={"/FinanceApp"}>
+            <li className="mb-5 flex cursor-pointer ">
+              <TiHomeOutline className="mt-3px mr-2 " />
+              Home
+            </li>
+          </Link>
           <li className="mb-5 flex cursor-pointer">
             <RxDashboard className="mt-3px mr-2" />
             Dashboard
