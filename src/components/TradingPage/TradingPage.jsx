@@ -6,6 +6,9 @@ import { useParams, Link } from "react-router-dom";
 import LineChart from "../../LineChart";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../LandingPage/Navbar";
+import { IoStarOutline } from "react-icons/io5";
+import { IoStar } from "react-icons/io5";
+
 const TradingPage = () => {
   const data = useSelector((state) => state.stockData);
   const params = useParams();
@@ -30,9 +33,12 @@ const TradingPage = () => {
   const handleWatchlist = () => {
     const updatedStockData = { ...stockData, Watchlist: !stockData.Watchlist };
     dispatch({ type: "STOCK_DATA", payload: updatedStockData });
-
-    setActive(!active);
+    if (window.innerWidth < 1024) {
+      setActive(!active);
+    }
+    console.log(active);
   };
+
   const handleBuyStock = () => {
     dispatch({ type: "PROCESSING_DATA_STOCK", payload: true });
 
@@ -201,7 +207,21 @@ const TradingPage = () => {
                   </div>
                   <div className="flex-col grow ">
                     <div className="flex  text-3xl justify-between grow  ml-2.5 text-Light-Black ">
-                      <div className="flex ">{stockData.StockName}</div>
+                      <div className="flex ">
+                        {stockData.StockName}
+                        <div
+                          className="flex ml-2 mt-px cursor-pointer "
+                          onClick={handleWatchlist}
+                        >
+                          {stockData.Watchlist ? (
+                            <IoStar className="text-yellow-400" />
+                          ) : (
+                            <IoStarOutline />
+                          )}
+                        </div>
+
+                        <div></div>
+                      </div>
                       <div className="flex "> ${ClosePrice}</div>
                     </div>
                     <div className="flex text-2xl justify-between grow  ml-3 text-Light-Black mt-3">
