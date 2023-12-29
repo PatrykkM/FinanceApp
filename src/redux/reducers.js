@@ -19,7 +19,7 @@ const initialState = {
   showAndHideCartMobile: false,
   processingData: false,
   currentCash: 240500 * 100,
-  isVisibleCurrentCash: true,
+  isVisibleCurrentCash: false,
   stockData: [
     {
       id: 0,

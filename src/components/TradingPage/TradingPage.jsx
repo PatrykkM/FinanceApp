@@ -67,6 +67,7 @@ const TradingPage = () => {
     }, 5000);
   };
   const HandleSellStock = () => {
+    if (stockData.Portfolio < 1) return;
     const newCashBalance = currentCashBalance + (StockData?.close || 0) * 100;
 
     dispatch({
@@ -85,7 +86,6 @@ const TradingPage = () => {
       type: "UPDATE_DID_USER_SELL_STATUS",
       payload: true,
     });
-    console.log(stockData.DidUserSell);
   };
   const ClosePrice = StockData?.close;
   const AmountOfStocks = ClosePrice * stockData.Portfolio;
@@ -107,21 +107,51 @@ const TradingPage = () => {
       Gain: StockData?.close,
     },
   ];
+  const [showYAxis, setShowYAxis] = useState(window.innerWidth > 1024);
 
-  const [userData] = useState({
+  const userData = {
     labels: GraphStockData.map((data) => data.hour),
     datasets: [
       {
         data: GraphStockData.map((data) => data.Gain),
         borderColor: "#2366DC",
+        backgroundColor: (context) => {
+          const windowWidth = window.innerWidth;
+
+          let gradientHeight;
+
+          if (windowWidth < 640) {
+            gradientHeight = 200;
+          } else if (windowWidth < 1024) {
+            gradientHeight = 350;
+          } else {
+            gradientHeight = 500;
+          }
+
+          const gradient = context.chart.ctx.createLinearGradient(
+            0,
+            0,
+            0,
+            gradientHeight
+          );
+
+          if (!showYAxis) {
+            gradient.addColorStop(0, "#2366DC");
+            gradient.addColorStop(1, "#1F1F1F");
+          } else {
+            gradient.addColorStop(0, "#2366DC");
+            gradient.addColorStop(1, "#F2F3F6");
+          }
+
+          return gradient;
+        },
+        fill: true,
         borderWidth: 3,
-        fill: false,
         pointRadius: 0,
         tension: 0.4,
       },
     ],
-  });
-  const [showYAxis, setShowYAxis] = useState(window.innerWidth > 1024);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -136,6 +166,9 @@ const TradingPage = () => {
   }, []);
 
   const options = {
+    animation: {
+      duration: 300,
+    },
     scales: {
       x: {
         display: null,
@@ -167,7 +200,9 @@ const TradingPage = () => {
       },
     },
     maintainAspectRatio: false,
-    line: {},
+    line: {
+      borderCapStyle: "round",
+    },
   };
 
   const IconComponent = stockData.iqon && icons[stockData.iqon];
