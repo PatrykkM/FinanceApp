@@ -13,7 +13,6 @@ const FetchDataApi = () => {
   // const month = (yesterday.getMonth() + 1).toString().padStart(2, "0");
   // const day = yesterday.getDate().toString().padStart(2, "0");
   // const formattedYesterdays = `${year}-${month}-${day}`;
-
   const dispatch = useDispatch();
 
   const [dataFetched, setDataFetched] = useState(false);
@@ -22,8 +21,8 @@ const FetchDataApi = () => {
     //  I'm glad you notice how I fetch data. Initially, I planned to do it differently like this
     //  `https://api.polygon.io/v1/open-close/${dataItem.LinkStock}/${formattedYesterdays}?adjusted=true&apiKey=3jHxpz7O9_eoUB9NIERMOBhT5oiM0xQo`
     //  but as I finished the project, I realized the Polygon API is only partially functional
-    //  Now, I retrieve data from just one day instead of refreshing randomly because the API often lacks data for about seven days a month.
-    //  This project is mainly for future recruiters, not commercial use. If a recruiter sees a blank page ,it won't help grab attention
+    //  Now, I retrieve data from just one day instead of refreshing everyday because the API often lacks data for about seven days a month.
+    //  This project is mainly for future recruiters, not commercial use. If a in the future recruiter would sees a blank page ,it would not help grab attention.
     //  While other APIs are available, I believe this is the best choice, despite some imperfections
     //  Trust me, I spent a long time looking for a free, good alternative :D
     const fetchData = async () => {
