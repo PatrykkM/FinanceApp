@@ -58,11 +58,11 @@ const PortfolioValue = () => {
         </div>
       </div>
 
-      <div className="flex mt-7  justify-between lg:justify-start">
+      <div className="flex mt-7  justify-between lg:justify-start select-none">
         <div className="w-11/20 bg-Light-Blue h-56  rounded-lg flex flex-col sm:h-80 xl:w-96">
           <div className="flex justify-center items-center h-3/5">
             <div
-              className={`border-Darker-Blue border-5 rounded-full w-24 h-24 text-2xl flex justify-center items-center sm:w-32 sm:h-32 sm:text-3xl`}
+              className={`border-Darker-Blue border-5 rounded-full w-24 h-24 text-2xl flex justify-center items-center sm:w-32 sm:h-32 sm:text-3xl `}
             >
               {isVisible ? "?" : `${PrecentageOfValue.toFixed(0)}%`}
             </div>
