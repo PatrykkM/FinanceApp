@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { RiArrowLeftSLine } from "react-icons/ri";
-import { icons } from "../../iqons";
+import { icons } from "../../icons/icons";
 import { useParams, Link } from "react-router-dom";
-import LineChart from "../../LineChart";
+import LineChart from "../Chart/LineChart";
 import { useDispatch, useSelector } from "react-redux";
-import Navbar from "../LandingPage/Navbar";
+import Navbar from "../Navbar/Navbar";
 import { IoStarOutline } from "react-icons/io5";
 import { IoStar } from "react-icons/io5";
 
@@ -21,13 +21,16 @@ const TradingPage = () => {
     (data) => data.symbol === params.symbol
   );
 
-  const StockData = StockDataArray.length > 0 ? StockDataArray[0] : undefined;
+  const ApiStockData =
+    StockDataArray.length > 0 ? StockDataArray[0] : undefined;
 
   const DayPercentageChange =
-    StockData && StockData?.close && StockData?.preMarket
-      ? (100 * (StockData?.close - StockData?.preMarket)) / StockData?.preMarket
+    ApiStockData && ApiStockData?.close && ApiStockData?.preMarket
+      ? (100 * (ApiStockData?.close - ApiStockData?.preMarket)) /
+        ApiStockData?.preMarket
       : 0;
   const [active, setActive] = useState(false);
+
   const stockData = data.find((stock) => stock.LinkStock === params.symbol);
 
   const handleWatchlist = () => {
@@ -36,7 +39,6 @@ const TradingPage = () => {
     if (window.innerWidth < 1024) {
       setActive(!active);
     }
-    console.log(active);
   };
 
   const handleBuyStock = () => {
@@ -45,8 +47,8 @@ const TradingPage = () => {
     setTimeout(() => {
       dispatch({ type: "PROCESSING_DATA_STOCK", payload: false });
 
-      if (!ProcessingData && currentCashBalance > StockData?.close) {
-        const newCashBalance = currentCashBalance - StockData?.close * 100;
+      if (!ProcessingData && currentCashBalance > ApiStockData?.close) {
+        const newCashBalance = currentCashBalance - ApiStockData?.close * 100;
 
         dispatch({
           type: "CURRENT_CASH",
@@ -54,7 +56,7 @@ const TradingPage = () => {
         });
 
         const updatedPortfolioItem = {
-          ...StockData,
+          ...ApiStockData,
           LinkStock: params.symbol,
           actionType: "increase",
         };
@@ -68,7 +70,8 @@ const TradingPage = () => {
   };
   const HandleSellStock = () => {
     if (stockData.Portfolio < 1) return;
-    const newCashBalance = currentCashBalance + (StockData?.close || 0) * 100;
+    const newCashBalance =
+      currentCashBalance + (ApiStockData?.close || 0) * 100;
 
     dispatch({
       type: "CURRENT_CASH",
@@ -78,7 +81,7 @@ const TradingPage = () => {
     dispatch({
       type: "UPDATE_PORTFOLIO",
       payload: {
-        LinkStock: StockData?.symbol,
+        LinkStock: ApiStockData?.symbol,
         actionType: "decrease",
       },
     });
@@ -87,24 +90,24 @@ const TradingPage = () => {
       payload: true,
     });
   };
-  const ClosePrice = StockData?.close;
+  const ClosePrice = ApiStockData?.close;
   const AmountOfStocks = ClosePrice * stockData.Portfolio;
 
   const GraphStockData = [
     {
       id: 1,
       hour: "pre",
-      Gain: StockData?.preMarket,
+      Gain: ApiStockData?.preMarket,
     },
     {
       id: 2,
       hour: "open",
-      Gain: StockData?.open,
+      Gain: ApiStockData?.open,
     },
     {
       id: 3,
       hour: "now",
-      Gain: StockData?.close,
+      Gain: ApiStockData?.close,
     },
   ];
   const [showYAxis, setShowYAxis] = useState(window.innerWidth > 1024);
@@ -224,7 +227,7 @@ const TradingPage = () => {
                     </div>
                   </Link>
                   <div className="font-light text-2xl tracking-wide sm:text-3xl ">
-                    {StockData?.symbol}
+                    {ApiStockData?.symbol}
                   </div>
                   <div
                     className="mr-3 text-2xl sm:text-3xl"
@@ -362,13 +365,13 @@ const TradingPage = () => {
                     <div className="flex  justify-between w-full items-center">
                       <div className=" text-gray-500">Open</div>
                       <div className=" font-medium">
-                        ${StockData?.open.toFixed(2)}
+                        ${ApiStockData?.open.toFixed(2)}
                       </div>
                     </div>
                     <div className="flex justify-between w-full">
                       <div className=" text-gray-500 ">Pre </div>
                       <div className="font-medium">
-                        ${StockData?.preMarket.toFixed(2)}
+                        ${ApiStockData?.preMarket.toFixed(2)}
                       </div>
                     </div>
                   </div>
@@ -378,13 +381,13 @@ const TradingPage = () => {
                     <div className="flex  justify-between w-full items-center">
                       <div className=" text-gray-500">High</div>
                       <div className=" font-medium">
-                        ${StockData?.high.toFixed(2)}
+                        ${ApiStockData?.high.toFixed(2)}
                       </div>
                     </div>
                     <div className="flex justify-between w-full">
                       <div className=" text-gray-500">Low</div>
                       <div className=" font-medium">
-                        ${StockData?.low.toFixed(2)}
+                        ${ApiStockData?.low.toFixed(2)}
                       </div>
                     </div>
                   </div>

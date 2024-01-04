@@ -1,5 +1,5 @@
 import React from "react";
-import { icons } from "../../iqons";
+import { icons } from "../../icons/icons";
 import { useDispatch, useSelector } from "react-redux";
 
 const TopAssets = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import StockItem from "./StockItem";
+import StockItem from "../../StockItem/StockItem";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 

@@ -4,7 +4,7 @@ import App from "./App";
 import store from "./redux/store";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
-import FetchDataApi from "../src/FetchDataApi";
+import FetchDataApi from "./components/Fetch/FetchDataApi";
 import TradingPage from "./components/TradingPage/TradingPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setAPIData } from "./redux/actions";
+import { setAPIData } from "../../redux/actions";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 

@@ -1,9 +1,9 @@
 import React from "react";
-import Watchlist from "./Watchlist";
+import Watchlist from "./SelectedTabInvestments/Watchlist";
 import { useDispatch, useSelector } from "react-redux";
 import { changeStocksSection } from "../../redux/actions";
-import Popular from "./Popular";
-import Portfolio from "./Portfolio";
+import Popular from "./SelectedTabInvestments/Popular";
+import Portfolio from "./SelectedTabInvestments/Portfolio";
 
 const Investments = () => {
   const dispatch = useDispatch();

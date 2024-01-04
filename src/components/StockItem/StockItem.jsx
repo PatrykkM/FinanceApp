@@ -1,23 +1,23 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { icons } from "../../iqons";
+import { icons } from "../../icons/icons";
 const StockItem = ({ data, id }) => {
-  const apiData = useSelector((state) => state.apiData);
-  const datas = useSelector((state) => state.stockData);
+  const ApiStockData = useSelector((state) => state.apiData);
+  const localStockData = useSelector((state) => state.stockData);
 
   const ActiveStocksSection = useSelector((state) => state.changeStocksSection);
 
-  if (!apiData || apiData.length === 0 || !apiData[id]) {
+  if (!ApiStockData || ApiStockData.length === 0 || !ApiStockData[id]) {
     return null;
   }
-  const ClosePrice = apiData[id]?.close;
-  const PreMarketPrice = apiData[id]?.preMarket;
+  const ClosePrice = ApiStockData[id]?.close;
+  const PreMarketPrice = ApiStockData[id]?.preMarket;
   const DayPercentageChange =
-    apiData && ClosePrice && PreMarketPrice
+    ApiStockData && ClosePrice && PreMarketPrice
       ? (100 * (ClosePrice - PreMarketPrice)) / PreMarketPrice
       : 0;
-  const stockData = datas.find(
-    (stock) => stock.LinkStock === apiData[id]?.symbol
+  const stockData = localStockData.find(
+    (stock) => stock.LinkStock === ApiStockData[id]?.symbol
   );
   if (!stockData) {
     return null;
@@ -41,7 +41,7 @@ const StockItem = ({ data, id }) => {
                 ? `You have ${stockData.Portfolio} ${
                     stockData.Portfolio > 1 ? "stocks" : "stock"
                   }`
-                : apiData[id]?.symbol}
+                : ApiStockData[id]?.symbol}
             </div>
           </div>
           <div className="flex flex-col justify-center items-end">

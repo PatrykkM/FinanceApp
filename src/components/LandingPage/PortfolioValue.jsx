@@ -6,7 +6,7 @@ import TopAssets from "./TopAssets";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { isVisibleCurrentCash } from "../../redux/actions";
 import { FaRegEye } from "react-icons/fa";
-import { icons } from "../../iqons";
+import { icons } from "../../icons/icons";
 
 const PortfolioValue = () => {
   const apiData = useSelector((state) => state.apiData);
