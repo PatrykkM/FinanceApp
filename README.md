@@ -1,17 +1,65 @@
-# FinanceApp
+import { SiReact, SiTailwindcss, SiRedux } from "react-icons/si";
 
-FinanceApp is an application that enables the simulation of buying and selling stocks from the most popular companies worldwide. My application focuses on providing a brokerage experience where you can track markets and invest in stocks.
+const AppDescription = () => {
+return (
 
-## Highlights
+<div>
+<h1># FinanceApp</h1>
 
-- 🚀 **Optimized for All Devices:** The application has been carefully tailored to provide a smooth and responsive experience on devices of all types. (I'm particularly proud of the mobile version! 😄)
+      <p>
+        FinanceApp is an application that enables the simulation of buying and
+        selling stocks from the most popular companies worldwide. My application
+        focuses on providing a brokerage experience where you can track markets
+        and invest in stocks.
+      </p>
 
-- 🔄 **Limited API Calls:** In the free version of the API I use, one refresh/page load consumes 5 API calls. Please be aware that there is a maximum limit of 5 API calls per minute in the free API, so try not to refresh the application frequently. Excessive refreshing may render the app non-functional, and you'll need to wait a minute before refreshing again. The application minimizes the number of API calls to adhere to limitations, avoiding unnecessary page refreshes.
+      <h2>Highlights</h2>
 
-## Technologies
+      <ul>
+        <li>
+          <span role="img" aria-label="rocket">
+            🚀
+          </span>
+          <strong>Optimized for All Devices:</strong> The application has been
+          carefully tailored to provide a smooth and responsive experience on
+          devices of all types. (I'm particularly proud of the mobile version!
+          😄)
+        </li>
+        <li>
+          <span role="img" aria-label="refresh">
+            🔄
+          </span>
+          <strong>Limited API Calls:</strong> In the free version of the API I
+          use, one refresh/page load consumes 5 API calls. Please be aware that
+          there is a maximum limit of 5 API calls per minute in the free API, so
+          try not to refresh the application frequently. Excessive refreshing
+          may render the app non-functional, and you'll need to wait a minute
+          before refreshing again. The application minimizes the number of API
+          calls to adhere to limitations, avoiding unnecessary page refreshes.
+        </li>
+      </ul>
 
-- **React:** ![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+      <h2>Technologies</h2>
 
-- **Tailwind CSS:** ![Tailwind CSS](https://img.shields.io/badge/-Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+      <ul>
+        <li>
+          <strong>React:</strong>
+          <SiReact style={{ verticalAlign: "middle", marginLeft: "5px" }} />
+        </li>
+        <li>
+          <strong>Tailwind CSS:</strong>
+          <SiTailwindcss
+            style={{ verticalAlign: "middle", marginLeft: "5px" }}
+          />
+        </li>
+        <li>
+          <strong>Redux:</strong>
+          <SiRedux style={{ verticalAlign: "middle", marginLeft: "5px" }} />
+        </li>
+      </ul>
+    </div>
 
-- **Redux:** ![Redux](https://img.shields.io/badge/-Redux-764ABC?style=for-the-badge&logo=redux&logoColor=white)
+);
+};
+
+export default AppDescription;
