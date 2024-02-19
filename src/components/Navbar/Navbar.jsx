@@ -84,10 +84,6 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="hidden lg:flex  flex-col items-end w-full mb-1 ml-px p-2">
-          <div className=" flex  justify-self-start w-full mb-3 cursor-pointer">
-            <TiHomeOutline className="mt-3px mr-2 ml-3" />
-            Settings
-          </div>
           <div className=" flex  justify-self-start w-full mb-6 cursor-pointer">
             <BsTelephone className="mt-3px mr-2 ml-3" />
             Support
